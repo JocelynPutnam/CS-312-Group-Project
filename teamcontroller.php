@@ -6,8 +6,6 @@ class Controller_Teamcontroller extends Controller_Template
 
 	public function action_index()
 	{
-		//die('team index');
-		//return Response::forge(View::forge('teamviews/index'));
 		$data = array();
 		$this->template->title = 'Team Home Page';
 		$this->template->css = 'style.css';
