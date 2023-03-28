@@ -3,12 +3,7 @@
 class Controller_Teamcontroller extends Controller_Template
 {
 	public $template = 'teamtemplate';
-	/**
-	 * The basic welcome message
-	 *
-	 * @access  public
-	 * @return  Response
-	 */
+
 	public function action_index()
 	{
 		//die('team index');
@@ -20,16 +15,14 @@ class Controller_Teamcontroller extends Controller_Template
 		$this->template->css = "style.css";
 	}
 
-	/**
-	 * A typical "Hello, Bob!" type example.  This uses a Presenter to
-	 * show how to use them.
-	 *
-	 * @access  public
-	 * @return  Response
-	 */
 	public function action_one()
 	{
 		return Response::forge(Presenter::forge('teamviews/one'));
+	}
+	
+	public function action_two()
+	{
+		return Response::forge(Presenter::forge('teamviews/two'));
 	}
 
 
