@@ -4,7 +4,7 @@
 <body>
 	
 <main>
-	<p>FOUND IT</p>
+	<p>Home page!</p>
 </main>
 
 </body>

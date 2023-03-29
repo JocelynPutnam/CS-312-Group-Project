@@ -4,7 +4,7 @@
 <body>
 
 <main>
-
+	<p>About page!</p>
 </main>
 
 </body>

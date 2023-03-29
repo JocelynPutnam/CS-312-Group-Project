@@ -15,12 +15,18 @@ class Controller_Teamcontroller extends Controller_Template
 
 	public function action_one()
 	{
-		return Response::forge(Presenter::forge('teamviews/one'));
+		$this->template->title = 'About Page';
+		$this->template->css = 'style.css';
+		$this->template->content = View::forge('teamviews/one');
+		$this->template->css = "style.css";
 	}
 	
 	public function action_two()
 	{
-		return Response::forge(Presenter::forge('teamviews/two'));
+		$this->template->title = 'Color Coordinate Page';
+		$this->template->css = 'style.css';
+		$this->template->content = View::forge('teamviews/two');
+		$this->template->css = "style.css";
 	}
 
 
