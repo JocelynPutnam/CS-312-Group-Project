@@ -29,5 +29,13 @@ class Controller_Teamcontroller extends Controller_Template
 		$this->template->css = "style.css";
 	}
 
+	public function action_three()
+	{
+		$this->template->title = 'Print View Page';
+		$this->template->css = 'style.css';
+		$this->template->content = View::forge('teamviews/three');
+		$this->template->css = "style.css";
+	}
+
 
 }
