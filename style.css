@@ -11,8 +11,8 @@ nav li a:hover {
 	background-color: #F29F05;
 }
 
-nav ul {
-}
+/*nav ul {
+} */
 
 div {
 	width: 800px;
@@ -22,9 +22,21 @@ div {
 main {
 	width: 800px;
 	margin: auto;
+	background-color: #a3ad9f;
+	overflow: auto;
+	padding: 20px;
 }	
 
 footer {
-	background-color: #F2B705;
+	background-color: #56a5aa;
 }
 
+img {
+	float:right;
+	padding: 10px;
+}
+
+
+
+
+/* color: #212245; */
