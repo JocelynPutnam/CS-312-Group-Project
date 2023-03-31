@@ -6,7 +6,9 @@
  * Light Grey = #cfd2cd
  */
 
-/*background-color: #dff2f2*/
+body {
+	background-color: #eff9f9;
+}
 
 nav li {
 	list-style-type: none;
