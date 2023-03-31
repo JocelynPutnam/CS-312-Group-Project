@@ -7,9 +7,9 @@
 <p>Color Coordinate Generation!</p>
  
 <form action="./two" method="post">
-Collumn/Row:<br> <input type="number" id="quantity" name="row" min="1" max="26">
+Collumn/Row:<br> <input type="number" id="quantity" name="row" min="1" max="26" required>
 <br>
-Color:<br> <input type="number" id="quantity" name="color" min="1" max="10">
+Color:<br> <input type="number" id="quantity" name="color" min="1" max="10" required>
 <br>
 <input type="submit">
 </form>
@@ -19,4 +19,3 @@ Color:<br> <input type="number" id="quantity" name="color" min="1" max="10">
 </body>
 
 </html>
-
