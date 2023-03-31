@@ -10,7 +10,7 @@
 
 <body>
     <header>
-		<h1>GOLDFISH PAINT: CS-312 Group Project</h1>
+		<h1>[Goldfish Paint Design]: CS-312 Group Project</h1>
 	</header> 
 
     <main>
