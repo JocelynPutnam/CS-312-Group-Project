@@ -1,3 +1,13 @@
+/* COLOR PALETTE FROM LOGO:
+ * Teal (light blue) = #63c5c3
+ * Dark Blue = #1b1c43
+ * Light Yellow = #eaf8d2
+ * Dark Teal = #4f7c84
+ * Light Grey = #cfd2cd
+ */
+
+/*background-color: #dff2f2*/
+
 nav li {
 	list-style-type: none;
 	display: inline-block;
@@ -14,6 +24,12 @@ nav li a:hover {
 /*nav ul {
 } */
 
+header {
+	background-color: #60c0c0;
+	color: #1b1c43; 
+	margin: 3px;
+}
+
 div {
 	width: 800px;
 	margin: auto;
@@ -26,13 +42,14 @@ div {
 main {
 	width: 800px;
 	margin: auto;
-	background-color: #a3ad9f;
+	background-color: #b0e0e0;
 	overflow: auto;
 	padding: 20px;
 }	
 
 footer {
-	background-color: #56a5aa;
+	background-color: #60c0c0;
+	color: #1b1c43;
 }
 
 img {
