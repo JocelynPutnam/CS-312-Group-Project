@@ -22,6 +22,9 @@ footer {
 }
 
 img {
+	
+	filter: grayscale(100%); /*making it greyscale here. */
+	filter: gray; /*making it greyscale here. */
 	float:right;
 	padding: 10px;
 }
