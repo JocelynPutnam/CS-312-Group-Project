@@ -2,6 +2,13 @@
 <html>
 
 <body>
+	
+	<header>
+		<table>
+			<td><?php echo Asset::img('Logo.img.png'); ?></td>
+			<td><h1>Generated Color Printview</h1></td>
+		</table>
+	</header>
 
 <main>
 	<p>Print Views Page!</p>
