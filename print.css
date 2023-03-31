@@ -1,0 +1,27 @@
+
+
+nav {
+    display: none;
+}
+
+div {
+	width: 100%;
+	margin: auto;
+}
+
+main {
+	width: 100%;
+	margin: auto;
+	background-color: none; /*turned off the background here */
+	overflow: auto;
+	padding: 20px;
+}	
+
+footer {
+	background-color: none; /*turned off the background here */
+}
+
+img {
+	float:right;
+	padding: 10px;
+}
