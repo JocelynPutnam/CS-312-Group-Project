@@ -28,7 +28,7 @@ class Controller_Teamcontroller extends Controller_Template
 		$this->template->css = 'style.css';
     if (!empty($_POST["color"])) {
     $this->template->content = View::forge('teamviews/two2');
-		$this->template->css = "style.css";
+		$this->template->css = "print.css";
     }
     else {
 		$this->template->content = View::forge('teamviews/two');
