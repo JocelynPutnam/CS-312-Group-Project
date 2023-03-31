@@ -10,7 +10,7 @@
 
 <body>
     <header>
-		<h1>[Insert Company Name Here]: CS-312 Group Project</h1>
+		<h1>GOLDFISH PAINT: CS-312 Group Project</h1>
 	</header> 
 
     <main>
