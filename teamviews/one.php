@@ -24,6 +24,13 @@
 				and a passion for video games. Most of my freetime is spent making art or playing video games like Stardew Valley 
 				and LOZ: Breath of the Wild.</p></td>
 		</tr>
+		
+		<tr>					
+			<td><?php echo Asset::img('jed.png'); ?></td>
+			<td><p> Hello! I'm Jed, and my pronouns are he/him. I am currently taking CS312 Modern Web applications. In my free time, I try to stay active by going on hikes and running. <br> 
+			One fun fact about me is that even though I am not really ambidexterous, I have been trying to write with my non dominant hand recently, and I have seen significant improvement (it's slightly more legible now). </p></td>
+		</tr>
+		
 	</table>
 		
 		<br>
