@@ -9,6 +9,11 @@ div {
 	margin: auto;
 }
 
+header {
+	background-color: #D3D3D3;
+	padding: 3px;
+}
+
 main {
 	width: 100%;
 	margin: auto;
@@ -25,6 +30,7 @@ img {
 	
 	filter: grayscale(100%); /*making it greyscale here. */
 	filter: gray; /*making it greyscale here. */
-	float:right;
+	/*float:right;*/
 	padding: 10px;
+	height: 100px;
 }
