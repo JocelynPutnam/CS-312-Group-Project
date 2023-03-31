@@ -19,6 +19,10 @@ div {
 	margin: auto;
 }
 
+#bio {
+	position: relative;
+}
+
 main {
 	width: 800px;
 	margin: auto;
