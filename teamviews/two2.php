@@ -19,8 +19,10 @@ var abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
 var number1 = document.createElement("TABLE");
 
 
-
 </script>
+
+<br>
+<a href="./three.php">Print</a>
 
 </body>
 </html>
