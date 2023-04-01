@@ -34,3 +34,27 @@ img {
 	padding: 10px;
 	height: 100px;
 }
+
+#table-1 th{
+  border: 1px solid black;
+}
+
+#table-2 th{
+  border: 1px solid black;
+}
+
+#table-1 {
+  border: 1px solid black;
+}
+
+#table-2 {
+  border: 1px solid black;
+}
+
+#table-1 td{
+  border: 1px solid black;
+}
+
+#table-2 td{
+  border: 1px solid black;
+}
