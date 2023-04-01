@@ -16,8 +16,11 @@
 <br>
 
 <?php 
+session_start();
 $colors = $_POST["color"]; 
 $rows = $_POST["row"];
+$_SESSION["colors"] = $colors;
+$_SESSION["rows"] = $rows;
 ?>
 
 <table id="table-1">
@@ -105,29 +108,16 @@ createTable2("table-2");
 
 
 </script>
-	
-	
-
-<label for="Color picker">Choose a color:</label>
-
-<select name="Color picker" id="Colors">
-  <option value="red">red</option>
-  <option value="orange">orange</option>
-  <option value="yellow">yellow</option>
-  <option value="green">green</option>
-  <option value="blue">blue</option>
-  <option value="purple">purple</option>
-  <option value="grey">grey</option>
-  <option value="brown">brown</option>
-  <option value="black">black</option>
-  <option value="teal">teal</option>
-</select>
 
 <br>
 <br>
-<a href="./three.php">  
-  <input type="submit" value="Print"/>  
-</a>
+<form action="./three.php" method="post">
+  <input type="hidden" name="color" value="colors">
+  <input type="hidden" name="row" value="rows">
+  <input type="submit" value="Print">
+</form>
+
+
 
 </body>
 </html>
