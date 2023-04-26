@@ -9,10 +9,10 @@
 		</table>
 </header>
 
+<br>
 <a href="./index">Go Back to Home</a>
 <br>
 <h2>Your two tables:</h2>
-<br>
 <br>
 
 <style>
