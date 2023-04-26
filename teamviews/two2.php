@@ -15,8 +15,22 @@
 <br>
 <br>
 
+<style>
+	#table-1 {
+		width: 100%
+	}
+	#table-1 td:first-child {
+		width: 20%;
+	}
+	#table-2 {
+		width: 50%;
+		height: 40%;
+	}
+
+</style>
+
 <?php 
-session_start();
+//session_start();
 $colors = $_POST["color"]; 
 $rows = $_POST["row"];
 $_SESSION["colors"] = $colors;
