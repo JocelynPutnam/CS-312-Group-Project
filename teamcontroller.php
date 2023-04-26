@@ -24,11 +24,17 @@ class Controller_Teamcontroller extends Controller_Template
 	
 	public function action_two()
 	{
-    $this->template->title = 'Color Coordinate Page';
+		$this->template->title = 'Color Coordinate Page';
 		$this->template->css = 'style.css';
-    if (!empty($_POST["color"])) {
-    $this->template->content = View::forge('teamviews/two2');
-		$this->template->css = "style.css";
+    if ((isset($_POST["color"])) && (isset($_POST["row"]))) { 
+		if ((($_POST["color"]) <= 10) || (($_POST["color"]) > 0) || (($_POST["row"]) <= 26) || (($_POST["row"]) > 0)) {
+			$this->template->content = View::forge('teamviews/two2');
+			$this->template->css = "style.css";
+		}
+		else {
+			$this->template->content = View::forge('teamviews/error');
+			$this->template->css = "style.css";
+		}
     }
     else {
 		$this->template->content = View::forge('teamviews/two');
