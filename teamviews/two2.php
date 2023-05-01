@@ -51,27 +51,65 @@ var clrs = ["red", "orange", "yellow", "green", "blue", "purple", "grey", "brown
 let span = document.createElement("span");
 span.innerHTML = "&nbsp;";
 
-//var number1 = document.createElement("TABLE");
-
 function createTable1(tableID) {
+ 
+  const colorsUsed = [];
+
+  //Checks if color is in use
+  function colorCheck(event) {
+    const selectedColor = event.target.value;
+    const selectedIndex = event.target.dataset.index;
+
+    // Check if the selected color is already in use by another select box
+    for (let i = 0; i < colorsUsed.length; i++) {
+      if (i !== parseInt(selectedIndex) && colorsUsed[i] === selectedColor) {
+        
+        event.target.value = colorsUsed[selectedIndex];
+
+        // Change the select box text color to red for 2 seconds if in use
+        event.target.style.color = 'red';
+        setTimeout(() => {
+          event.target.style.color = '';
+        }, 2000);
+        return;
+      }
+    }
+
+    // Update colorUsed to new color
+    colorsUsed[selectedIndex] = selectedColor;
+  }
+
   for (let i = 0; i < colors; i++) {
-  
     let tableRef = document.getElementById(tableID);
-  
-    
+
     let newRow = tableRef.insertRow(-1);
-  
-    
+
     let newCell = newRow.insertCell(0);
     let newCell2 = newRow.insertCell(1);
-  
-    
-    let newText = document.createTextNode(clrs[i]);
-    //let newText2 = document.createTextNode(" ");
-    newCell.appendChild(newText);
-    newCell2.appendChild(span);
+
+
+    // Create the select box for the color
+    let colorBox = document.createElement('select');
+    colorBox.dataset.index = i;
+    colorBox.addEventListener('change', colorCheck);
+    //Loop through colors - saves index and color 
+    for (const [index, color] of clrs.entries()) {
+      let option = document.createElement('option');
+      option.value = color;
+      option.text = color;
+      if (index === i) {
+        option.selected = true;
+      }
+      colorBox.add(option);
+    }
+    newCell.appendChild(colorBox);
+
+    colorsUsed[i] = clrs[i];
   }
 }
+
+
+
 
 function createTable2(tableID) {
   for (let i = 0; i < rows + 1; i++) {
