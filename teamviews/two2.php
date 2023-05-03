@@ -26,6 +26,37 @@
 		width: 50%;
 		height: 40%;
 	}
+  .red {
+    background-color: red;
+  }
+  .black {
+    background-color: black;
+  }
+  .blue {
+      background-color: blue;
+  }
+  .yellow {
+      background-color: yellow;
+  }
+  .green {
+      background-color: green;
+  }
+  .purple {
+      background-color: purple;
+  }
+  .orange {
+      background-color: orange;
+  }
+  .teal {
+      background-color: teal;
+  }
+  .brown {
+      background-color: brown;
+  }
+  .grey {
+      background-color: grey;
+  }
+  
 
 </style>
 
@@ -42,9 +73,12 @@ $_SESSION["rows"] = $rows;
 <br>
 <table id="table-2">
 </table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
 var colors = <?php echo $colors ?>;
 var rows = <?php echo $rows ?>;
+var color = 'red';
 
 var abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var clrs = ["red", "orange", "yellow", "green", "blue", "purple", "grey", "brown", "black", "teal"];
@@ -153,8 +187,27 @@ function createTable2(tableID) {
   
 }
 
+//document readys on launch to react to future events
+$(document).ready(function(){
 
+//function that colors cell of table-2 based on click event
+$('#table-2').find('td').click( function(){
+  //variables for position of cell and cells current class attributes
+  var pos = $(this).index();
+  var cn = $(this).attr("class");
 
+  if (cn != undefined && cn != '') {
+    this.classList.remove(color);
+  }
+  else {
+    this.className=color;
+  }
+
+});
+
+});
+
+//creates tables made from previous functions
 createTable1("table-1");
 createTable2("table-2");
 
