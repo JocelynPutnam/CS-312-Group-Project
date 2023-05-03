@@ -19,44 +19,65 @@
 	#table-1 {
 		width: 100%
 	}
+	#table-1 td {
+		height: 30px;
+	}
 	#table-1 td:first-child {
 		width: 20%;
 	}
 	#table-2 {
-		width: 50%;
-		height: 40%;
+		text-align: center;
+		margin: auto;
 	}
-  .red {
-    background-color: red;
-  }
-  .black {
-    background-color: black;
-  }
-  .blue {
-      background-color: blue;
-  }
-  .yellow {
-      background-color: yellow;
-  }
-  .green {
-      background-color: green;
-  }
-  .purple {
-      background-color: purple;
-  }
-  .orange {
-      background-color: orange;
-  }
-  .teal {
-      background-color: teal;
-  }
-  .brown {
-      background-color: brown;
-  }
-  .grey {
-      background-color: grey;
-  }
-  
+	#table-2 td {
+		table-layout: fixed;
+		overflow: hidden;
+		width: 90px;
+		height: 90px;
+	}
+	.red {
+		background-color: red;
+    }
+	.black {
+		background-color: black;
+	}
+	.blue {
+		background-color: blue;
+	}
+	.yellow {
+		background-color: yellow;
+	}
+	.green {
+		background-color: green;
+	}
+	.purple {
+		background-color: purple;
+	}
+	.orange {
+		background-color: orange;
+	}
+	.teal {
+		background-color: teal;
+	}
+	.brown {
+		background-color: brown;
+	}
+	.grey {
+		background-color: grey;
+	}
+	.table-1 input { 
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+	input {
+		width: 20%;
+		height: 30px;
+		margin: auto;
+	}
+	.selected {
+		outline: 5px solid magenta;
+	}
 
 </style>
 
@@ -68,13 +89,12 @@ $_SESSION["colors"] = $colors;
 $_SESSION["rows"] = $rows;
 ?>
 
-<table id="table-1">
+<table id="table-1" class="table-1">
 </table>
 <br>
 <table id="table-2">
 </table>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
 var colors = <?php echo $colors ?>;
 var rows = <?php echo $rows ?>;
@@ -120,7 +140,14 @@ function createTable1(tableID) {
 
     let newCell = newRow.insertCell(0);
     let newCell2 = newRow.insertCell(1);
+    
+    //radio buttons
+	let input = document.createElement('input');
+	input.setAttribute("type", "radio");
+	input.setAttribute("name", "radioButton");
+	
 
+	let currentColor;
 
     // Create the select box for the color
     let colorBox = document.createElement('select');
@@ -133,16 +160,21 @@ function createTable1(tableID) {
       option.text = color;
       if (index === i) {
         option.selected = true;
+        console.log(color);
+        currentColor = color;
       }
       colorBox.add(option);
     }
+    
     newCell.appendChild(colorBox);
+	newCell2.appendChild(input);
+	newCell2.style.backgroundColor = currentColor;
+
 
     colorsUsed[i] = clrs[i];
   }
+  
 }
-
-
 
 
 function createTable2(tableID) {
@@ -222,7 +254,22 @@ createTable2("table-2");
   <input type="submit" value="Print">
 </form>
 
-
-
 </body>
 </html>
+
+
+<script>
+	//Radio buttons change color according to dropdown
+	$("td").click(function(){
+	});
+	
+	$('select').on('change', function() {
+		let newColor = $(this).val();
+		$(this).closest("td").next("td").css("background-color", newColor);
+	});
+	
+	$("input:radio").click(function() {
+		$("#table-1 input").removeClass("selected");
+		$(this).addClass("selected");
+	});
+</script>
