@@ -35,36 +35,7 @@
 		width: 90px;
 		height: 90px;
 	}
-	.red {
-		background-color: red;
-    }
-	.black {
-		background-color: black;
-	}
-	.blue {
-		background-color: blue;
-	}
-	.yellow {
-		background-color: yellow;
-	}
-	.green {
-		background-color: green;
-	}
-	.purple {
-		background-color: purple;
-	}
-	.orange {
-		background-color: orange;
-	}
-	.teal {
-		background-color: teal;
-	}
-	.brown {
-		background-color: brown;
-	}
-	.grey {
-		background-color: grey;
-	}
+
 	.table-1 input { 
 		width: 100%;
 		height: 100%;
@@ -98,7 +69,7 @@ $_SESSION["rows"] = $rows;
 <script type="text/javascript">
 var colors = <?php echo $colors ?>;
 var rows = <?php echo $rows ?>;
-var color = 'red';
+var colorcolor;
 
 var abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var clrs = ["red", "orange", "yellow", "green", "blue", "purple", "grey", "brown", "black", "teal"];
@@ -160,15 +131,20 @@ function createTable1(tableID) {
       option.text = color;
       if (index === i) {
         option.selected = true;
-        console.log(color);
         currentColor = color;
       }
       colorBox.add(option);
     }
     
     newCell.appendChild(colorBox);
-	newCell2.appendChild(input);
+	newCell.appendChild(input);
 	newCell2.style.backgroundColor = currentColor;
+
+  //set first td to selected and starting color
+  if (i == 0) {
+    $(newCell2).addClass("selected");
+    colorcolor = $(newCell2).css('background-color');
+  }
 
 
     colorsUsed[i] = clrs[i];
@@ -211,6 +187,9 @@ function createTable2(tableID) {
         else {
           let newCell = newRow.insertCell(k);
           newCell.appendChild(span);
+          letter = abc[k-1];
+          newID = letter + i;
+          newCell.id = newID;
         }
       }
       
@@ -225,14 +204,70 @@ $(document).ready(function(){
 //function that colors cell of table-2 based on click event
 $('#table-2').find('td').click( function(){
   //variables for position of cell and cells current class attributes
-  var pos = $(this).index();
-  var cn = $(this).attr("class");
+  var cn = $(this).css("background-color");
+  var id = $(this).attr("id");
+  if (cn == 'rgba(0, 0, 0, 0)' && id != undefined) {
+    $(this).css("background-color", colorcolor);
+    //get cell info and append cells location to color td
+    //iterate through first table to append new cell ID to selected cell
+    let newBack = $(this).css("background-color");
+    var table = document.getElementById("table-1");
+    for (var i = 0, row; row = table.rows[i]; i++) {
+      //iterate through rows
+      //rows would be accessed using the "row" variable assigned in the for loop
+      for (var j = 0, col; col = row.cells[j]; j++) {
+        if ('selected' == $(col).attr('class')) {
 
-  if (cn != undefined && cn != '') {
-    this.classList.remove(color);
-  }
-  else {
-    this.className=color;
+          //get, sort, and append string of cell ids in lexicographic order
+
+          //if column has no values in it yet
+          if ($(col).val() == null || $(col).val() == undefined || $(col).val() == '') {
+            // console.log($(col).val());
+            // col.appendChild(document.createTextNode($(col).val()));
+            $(col).val(id);
+            let node = document.createElement('p');
+            let nodetext = document.createTextNode($(col).val());
+            node.id = i + j;
+
+            node.appendChild(nodetext);
+            col.appendChild(node);
+          } //if there are values already in column
+          else {
+            let val = $(col).val();
+            const valArray = val.split(",");
+            valArray.push(id);
+            //check for lexicographic correct order
+            valArray.sort();
+    
+            let finalString = "";
+            for (m = 0; m < valArray.length; m++) {
+              if (m == 0) {
+                finalString = valArray[m];
+              }
+              else {
+                finalString = finalString + "," + valArray[m];
+                console.log(finalString);
+              }
+            }
+
+
+            node = document.getElementById(i + j);
+            col.removeChild(node);
+            let newNode = document.createElement('p');
+            newNode.id = i + j;
+            let newNodeText = document.createTextNode(finalString);
+            $(col).val(finalString);
+            newNode.appendChild(newNodeText);
+            col.appendChild(newNode);
+            // combine = val + id;
+            // console.log(combine);
+            // console.log($(col).val());
+          }
+        }
+        //iterate through columns
+        //columns would be accessed using the "col" variable assigned in the for loop
+      }
+    }
   }
 
 });
@@ -265,11 +300,31 @@ createTable2("table-2");
 	
 	$('select').on('change', function() {
 		let newColor = $(this).val();
+    let oldColor = $(this).closest("td").next("td").css("background-color");
 		$(this).closest("td").next("td").css("background-color", newColor);
+    if ($(this).closest("td").next("td").attr('class') == 'selected') {
+      colorcolor = newColor;
+    }
+
+    //iterate through second table to change same colored cells to new color
+    var table = document.getElementById("table-2");
+    for (var i = 0, row; row = table.rows[i]; i++) {
+      //iterate through rows
+      //rows would be accessed using the "row" variable assigned in the for loop
+      for (var j = 0, col; col = row.cells[j]; j++) {
+        if (oldColor == $(col).css("background-color")) {
+          $(col).css("background-color", newColor);
+        }
+        //iterate through columns
+        //columns would be accessed using the "col" variable assigned in the for loop
+      }
+    }
 	});
-	
+	//change selection class based on most recent clicked radio button. give closest td the class attribute
 	$("input:radio").click(function() {
-		$("#table-1 input").removeClass("selected");
-		$(this).addClass("selected");
+    colorcolor = $(this).closest("td").next("td").css("background-color");
+		$("#table-1 input").closest("td").next("td").removeClass("selected");
+		//$(this).addClass("selected");
+    $(this).closest("td").next("td").addClass("selected");
 	});
 </script>
