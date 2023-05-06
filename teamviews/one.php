@@ -25,7 +25,7 @@
 				and LOZ: Breath of the Wild.</p></td>
 		</tr>
 		<tr>					
-			<td><?php echo Asset::img('Jed.png'); ?></td>
+			<td><?php echo Asset::img('Jed.PNG'); ?></td>
 			<td><p> Hello! I'm Jed, and my pronouns are he/him. I am currently taking CS312 Modern Web applications. In my free time, 
 				I try to stay active by going on hikes and running. <br> 
 				One fun fact about me is that even though I am not really ambidexterous, I've been trying to write with my non dominant 
