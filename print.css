@@ -57,6 +57,10 @@ img {
   height: 30px;
 }
 
+#table-1 td:first-child {
+  width: 20%;
+}
+
 #table-2 td{
   border: 1px solid black;
   table-layout: fixed;
