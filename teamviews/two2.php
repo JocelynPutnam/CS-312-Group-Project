@@ -9,6 +9,22 @@
 		</table>
 </header>
 
+
+<h3 style  = padding: 65px;> Welcome to the color coordinate sheet! Here is a brief introduction on how to use this page: </h3>
+ <p>
+
+On this page, you have a table with a drop down list of colors. It initially defaults to the color in the first row, but you may change it to one of the ten colors.  <br> 
+
+However, you can only pick a color that has not already been picked in the table. Upon clicking on a cell in the table, the color of the cell will change to the new color that has been selected in the drop down.  <br> 
+
+Upon changing the color, the coordinate will also be updated on the column by the color name. This website also supports a print view, so that you may review the page in grey scale without the drop down buttons.  <br> 
+
+
+ <br>
+ 
+
+ <p>
+
 <br>
 <a href="./index" class="button">Go Back to Home</a>
 <br>
@@ -18,6 +34,9 @@
 <style>
 	#table-1 {
 		width: 100%
+	}
+	#table-1 td {
+		height: 30px;
 	}
 	#table-1 td:first-child {
 		width: 20%;
@@ -379,3 +398,4 @@ createTable2("table-2");
     $(this).closest("td").next("td").addClass("selected");
 	});
 </script>
+
