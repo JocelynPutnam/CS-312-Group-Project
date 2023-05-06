@@ -25,6 +25,9 @@
 	#table-1 td:first-child {
 		width: 20%;
 	}
+	#table-1 td:nth-child(2) {
+		color: lightgrey;
+	}
 	#table-2 {
 		text-align: center;
 		margin: auto;
@@ -35,7 +38,6 @@
 		width: 90px;
 		height: 90px;
 	}
-
 	.table-1 input { 
 		width: 100%;
 		height: 100%;
