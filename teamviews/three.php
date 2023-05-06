@@ -11,9 +11,10 @@
 	</header>
 
 <?php
-session_start();
-$colors = $_SESSION["colors"];
-$rows = $_SESSION["rows"];
+$colors = $_POST["color"];
+$rows = $_POST["row"];
+$va = $_POST["vsArray"];
+$ca = $_POST["colorArray"];
 ?>
 
 
@@ -34,6 +35,11 @@ $rows = $_SESSION["rows"];
 
 var colors = <?php echo $colors ?>;
 var rows = <?php echo $rows ?>;
+var va = "<?php echo $va ?>".split("/");
+var ca = "<?php echo $ca ?>".split(",");
+console.log(colors);
+console.log(va);
+console.log(ca);
 
 var abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var clrs = ["red", "orange", "yellow", "green", "blue", "purple", "grey", "brown", "black", "teal"];
@@ -54,11 +60,11 @@ function createTable1(tableID) {
     let newCell = newRow.insertCell(0);
     let newCell2 = newRow.insertCell(1);
   
-    
-    let newText = document.createTextNode(clrs[i]);
+    let newText = document.createTextNode(ca[i]);
+    let newText2 = document.createTextNode(va[i]);
     //let newText2 = document.createTextNode(" ");
     newCell.appendChild(newText);
-    newCell2.appendChild(span);
+    newCell2.appendChild(newText2);
   }
 }
 

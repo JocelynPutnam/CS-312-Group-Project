@@ -53,11 +53,8 @@
 </style>
 
 <?php 
-//session_start();
 $colors = $_POST["color"]; 
 $rows = $_POST["row"];
-$_SESSION["colors"] = $colors;
-$_SESSION["rows"] = $rows;
 ?>
 
 <table id="table-1" class="table-1">
@@ -69,12 +66,19 @@ $_SESSION["rows"] = $rows;
 <script type="text/javascript">
 var colors = <?php echo $colors ?>;
 var rows = <?php echo $rows ?>;
-var colorcolor;
+var valsArray = new Array(colors);
+var colsArray = new Array(colors);
+var colorcolor = '';
 
 var abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var clrs = ["red", "orange", "yellow", "green", "blue", "purple", "grey", "brown", "black", "teal"];
+
 let span = document.createElement("span");
 span.innerHTML = "&nbsp;";
+
+for (i = 0; i < colors; i++) {
+  colsArray[i] = clrs[i];
+}
 
 function createTable1(tableID) {
  
@@ -136,8 +140,9 @@ function createTable1(tableID) {
       colorBox.add(option);
     }
     
-    newCell.appendChild(colorBox);
+  newCell.appendChild(colorBox);
 	newCell.appendChild(input);
+  newCell.id = i;
 	newCell2.style.backgroundColor = currentColor;
 
   //set first td to selected and starting color
@@ -228,6 +233,21 @@ $('#table-2').find('td').click( function(){
             let node = document.createElement('p');
             let nodetext = document.createTextNode($(col).val());
             node.id = i + j;
+            for (v = 1; v <= colors; v++) {
+              if (node.id == v && j == 1) {
+                valsArray[v-1] = id;
+              }
+            }
+            let stringy = "";
+            for (g = 0; g < colors; g++) {
+              if (g == 0) {
+                stringy = valsArray[g];
+              }
+              else {
+                stringy = stringy + "/" + valsArray[g];
+              }
+            }
+            console.log(document.getElementById("va").value = stringy);
 
             node.appendChild(nodetext);
             col.appendChild(node);
@@ -246,7 +266,6 @@ $('#table-2').find('td').click( function(){
               }
               else {
                 finalString = finalString + "," + valArray[m];
-                console.log(finalString);
               }
             }
 
@@ -257,6 +276,22 @@ $('#table-2').find('td').click( function(){
             newNode.id = i + j;
             let newNodeText = document.createTextNode(finalString);
             $(col).val(finalString);
+
+            for (v = 1; v <= colors; v++) {
+              if (node.id == v && j == 1) {
+                valsArray[v-1] = finalString;
+              }
+            }
+            for (g = 0; g < colors; g++) {
+              if (g == 0) {
+                stringy = valsArray[g];
+              }
+              else {
+                stringy = stringy + "/" + valsArray[g];
+              }
+            }
+            console.log(document.getElementById("va").value = stringy);
+
             newNode.appendChild(newNodeText);
             col.appendChild(newNode);
             // combine = val + id;
@@ -283,11 +318,19 @@ createTable2("table-2");
 
 <br>
 <br>
-<form action="./three.php" method="post">
-  <input type="hidden" name="color" value="colors">
-  <input type="hidden" name="row" value="rows">
+<form action="./three" method="post">
+  <input type="hidden" id="color"name="color" value=''>
+  <input type="hidden" id="row"name="row" value=''>
+  <input type="hidden" id="va" name="vsArray" value=[]>
+  <input type="hidden" id="ca" name="colorArray" value=[]>
   <input type="submit" value="Print">
 </form>
+
+<script>
+  //setting inputs for print view equal to corresponding variables
+  document.getElementById("color").value = colors;
+  document.getElementById("row").value = rows;
+</script>
 
 </body>
 </html>
@@ -301,6 +344,14 @@ createTable2("table-2");
 	$('select').on('change', function() {
 		let newColor = $(this).val();
     let oldColor = $(this).closest("td").next("td").css("background-color");
+    let indexID = $(this).closest("td").attr("id");
+    for (i = 0; i < colors; i++) {
+      if (i == indexID) {
+        colsArray[i] = newColor;
+      }
+    }
+    document.getElementById("ca").value = colsArray;
+
 		$(this).closest("td").next("td").css("background-color", newColor);
     if ($(this).closest("td").next("td").attr('class') == 'selected') {
       colorcolor = newColor;
