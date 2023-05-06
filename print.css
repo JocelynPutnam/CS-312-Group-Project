@@ -10,14 +10,13 @@ div {
 
 header {
 	background-color: #D3D3D3;
-	padding: 3px;
 }
 
 main {
 	margin: auto;
 	background-color: none; /*turned off the background here */
 	overflow: auto;
-	padding: 20px;
+	padding: 2px;
 }	
 
 footer {
@@ -25,11 +24,10 @@ footer {
 }
 
 img {
-	
 	filter: grayscale(100%); /*making it greyscale here. */
 	filter: gray; /*making it greyscale here. */
 	/*float:right;*/
-	padding: 10px;
+	padding: 2px;
 	height: 100px;
 }
 
