@@ -18,13 +18,13 @@
 <div>
 
 <p>Learn a little bit more about us! Visit the team!<p>
-<a href="./one.php">About Us</a>
+<a href="./one.php" class="button">About Us</a>
     
 </div>
 <div>
 
 <p>Head to the Color Coordinate Generation page to create your own color coordinated table now!</p>
-<a href="./two.php">Color Coordinate Generation</a>
+<a href="./two.php" class="button">Color Coordinate Generation</a>
 
 </div>
 
