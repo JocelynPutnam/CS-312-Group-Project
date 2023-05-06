@@ -19,9 +19,6 @@
 	#table-1 {
 		width: 100%
 	}
-	#table-1 td {
-		height: 30px;
-	}
 	#table-1 td:first-child {
 		width: 20%;
 	}
