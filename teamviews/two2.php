@@ -10,20 +10,21 @@
 </header>
 
 
-<h3 style  = padding: 65px;> Welcome to the color coordinate sheet! Here is a brief introduction on how to use this page: </h3>
- <p>
+<h2 style  = padding: 50px;> Welcome to the color coordinate sheet! Here is a brief introduction on how to use this page: </h2>
 
-On this page, you have a table with a drop down list of colors. It initially defaults to the color in the first row, but you may change it to one of the ten colors.  <br> 
+ <h3 >
 
-However, you can only pick a color that has not already been picked in the table. Upon clicking on a cell in the table, the color of the cell will change to the new color that has been selected in the drop down.  <br> 
+On this page, you have a table with a drop down list of colors. It initially defaults to the color in the first row, but you may change it to one of the ten colors. 
 
-Upon changing the color, the coordinate will also be updated on the column by the color name. This website also supports a print view, so that you may review the page in grey scale without the drop down buttons.  <br> 
+However, you can only pick a color that has not already been picked in the table. Upon clicking on a cell in the table, the color of the cell will change to the new color that has been selected in the drop down. 
+
+Upon changing the color, the coordinate will also be updated on the column by the color name. This website also supports a print view, so that you may review the page in grey scale without the drop down buttons.  
 
 
  <br>
  
 
- <p>
+ </h3>
 
 <br>
 <a href="./index" class="button">Go Back to Home</a>
