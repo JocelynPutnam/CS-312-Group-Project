@@ -13,7 +13,7 @@
 		<h1>[Goldfish Paint Design]: CS-312 Group Project</h1>
 	</header> 
 
-    <main>
+    <main style="box-shadow: 4px 4px 4.5px darkgrey;">
 		<!-- <h1>Master Template</h1> -->
         <!-- <p>Below is the View passed into this template</p>-->
         <?php echo $content ?>
