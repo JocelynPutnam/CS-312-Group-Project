@@ -20,9 +20,7 @@ $ca = $_POST["colorArray"];
 
 <main>
 	
-<br>
 <h2>Your two tables:</h2>
-<br>
 <br>
 
 <table id="table-1">
