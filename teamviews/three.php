@@ -59,12 +59,14 @@ function createTable1(tableID) {
     
     let newCell = newRow.insertCell(0);
     let newCell2 = newRow.insertCell(1);
-  
+    
     let newText = document.createTextNode(ca[i]);
-    let newText2 = document.createTextNode(va[i]);
+    if (va[i] != '[]' && va[i] != 'undefined' && va[i] != undefined) {
+       newText2 = document.createTextNode(va[i]);
+       newCell2.appendChild(newText2);
+    }
     //let newText2 = document.createTextNode(" ");
     newCell.appendChild(newText);
-    newCell2.appendChild(newText2);
   }
 }
 

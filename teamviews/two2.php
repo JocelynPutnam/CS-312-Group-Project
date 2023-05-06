@@ -330,6 +330,7 @@ createTable2("table-2");
   //setting inputs for print view equal to corresponding variables
   document.getElementById("color").value = colors;
   document.getElementById("row").value = rows;
+  document.getElementById("ca").value = colsArray;
 </script>
 
 </body>
