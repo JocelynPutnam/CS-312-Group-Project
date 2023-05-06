@@ -43,16 +43,26 @@ img {
 
 #table-1 {
   border: 1px solid black;
+  width: 100%;
 }
 
 #table-2 {
   border: 1px solid black;
+  text-align: center;
+  margin: auto;
 }
 
 #table-1 td{
   border: 1px solid black;
+  height: 30px;
 }
 
 #table-2 td{
   border: 1px solid black;
+  table-layout: fixed;
+  overflow: hidden;
+  width: 90px;
+  height: 90px;
 }
+
+
